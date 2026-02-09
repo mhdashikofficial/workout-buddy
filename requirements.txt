@@ -1,0 +1,18 @@
+# .env-example
+# Copy this file to .env and fill in your actual values
+
+# MongoDB connection string
+# Local MongoDB example:
+MONGO_URI=mongodb://localhost:27017/fitness_db
+
+# For MongoDB Atlas (recommended for production):
+# MONGO_URI=mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/fitness_db?retryWrites=true&w=majority
+
+# Flask secret key (generate a strong random one)
+SECRET_KEY=change-this-to-a-very-long-random-string-1234567890abcdef
+
+# Optional - only if you later add email features, etc.
+# MAIL_SERVER=smtp.gmail.com
+# MAIL_PORT=587
+# MAIL_USERNAME=your-email@gmail.com
+# MAIL_PASSWORD=your-app-password
