@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-md mx-auto mt-16">
+  <div class="bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fadeIn">
+    <h2 class="text-3xl font-bold text-center mb-8 text-emerald-400">Login</h2>
+    <form method="POST">
+      <div class="mb-6">
+        <input type="text" name="username" placeholder="Username" required class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+      </div>
+      <div class="mb-8">
+        <input type="password" name="password" placeholder="Password" required class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+      </div>
+      <button type="submit" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold transition transform hover:scale-105">Sign In</button>
+    </form>
+    <p class="mt-6 text-center text-gray-400">
+      No account? <a href="{{ url_for('signup') }}" class="text-emerald-400 hover:underline">Sign Up</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
