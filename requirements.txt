@@ -1,18 +1,16 @@
-# .env-example
-# Copy this file to .env and fill in your actual values
+# requirements.txt
 
-# MongoDB connection string
-# Local MongoDB example:
-MONGO_URI=mongodb://localhost:27017/fitness_db
+Flask==3.0.3
+Flask-Login==0.6.3
+pymongo==4.8.0
+python-dotenv==1.0.1
+bcrypt==4.2.0
 
-# For MongoDB Atlas (recommended for production):
-# MONGO_URI=mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/fitness_db?retryWrites=true&w=majority
+# Optional - only needed if you later add forms with validation
+# WTForms==3.1.2
+# Flask-WTF==1.2.1
 
-# Flask secret key (generate a strong random one)
-SECRET_KEY=change-this-to-a-very-long-random-string-1234567890abcdef
-
-# Optional - only if you later add email features, etc.
-# MAIL_SERVER=smtp.gmail.com
-# MAIL_PORT=587
-# MAIL_USERNAME=your-email@gmail.com
-# MAIL_PASSWORD=your-app-password
+# Optional - better development experience
+# black==24.8.0          # code formatter
+# flake8==7.1.1          # linter
+# python-dotenv[cli]     # optional dotenv CLI
