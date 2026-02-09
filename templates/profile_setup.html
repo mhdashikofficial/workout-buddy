@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-3xl mx-auto mt-10">
+  <div class="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fadeIn">
+    <h2 class="text-3xl font-bold text-center mb-10 text-emerald-400">Complete Your Profile</h2>
+    
+    <form method="POST" class="space-y-6">
+      <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <input type="number" name="age" placeholder="Age" required class="p-4 bg-gray-700 border border-gray-600 rounded-xl">
+        <input type="number" step="0.1" name="height" placeholder="Height (cm)" required class="p-4 bg-gray-700 border border-gray-600 rounded-xl">
+        <input type="number" step="0.1" name="weight" placeholder="Weight (kg)" required class="p-4 bg-gray-700 border border-gray-600 rounded-xl">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <select name="country" required class="p-4 bg-gray-700 border border-gray-600 rounded-xl">
+          <option value="India">India</option>
+          <!-- add more if needed -->
+        </select>
+        <input type="text" name="state" placeholder="State (e.g. Kerala)" required class="p-4 bg-gray-700 border border-gray-600 rounded-xl">
+      </div>
+
+      <select name="budget" required class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl">
+        <option value="">Protein Suggestion Level</option>
+        <option value="low">Low Budget (Food only - Kerala style)</option>
+        <option value="middle">Middle (Some supplements like Whey)</option>
+        <option value="advanced">Advanced (Whey + Creatine + more)</option>
+      </select>
+
+      <select name="location" required class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl">
+        <option value="">Workout Location</option>
+        <option value="Gym">Gym</option>
+        <option value="Home">Home</option>
+      </select>
+
+      <div x-data="{ showEquip: false }" x-init="$watch(' $el.querySelector(`[name=location]`).value', v => showEquip = v==='Home')">
+        <select name="equipment" x-show="showEquip" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-xl">
+          <option value="none">No equipment / Bodyweight only</option>
+          <option value="dumbbell">Dumbbells available</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold transition transform hover:scale-105 mt-8">Save & Start Tracking</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
