@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="space-y-10 animate-fadeIn">
+
+  <div class="text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-3">Welcome back, {{ current_user.profile.name or 'Fit Warrior' }}!</h1>
+    <p class="text-xl text-gray-300">Your Weekly Score: <span class="text-3xl font-bold text-emerald-400">{{ score }}/100</span></p>
+  </div>
+
+  <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+    <h2 class="text-3xl font-bold mb-6 text-center">{{ today }} Workout</h2>
+    <ul class="space-y-4 text-lg">
+      {% for ex in workouts %}
+      <li class="bg-gray-700/50 p-4 rounded-xl hover:bg-gray-600/50 transition">{{ ex }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+    <h2 class="text-3xl font-bold mb-6 text-center">Daily Protein Target: {{ protein_target }} g</h2>
+    <p class="text-center mb-6 text-gray-300">Track your intake to hit your goal!</p>
+    <a href="{{ url_for('log_food') }}" class="block w-full max-w-xs mx-auto py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-center transition transform hover:scale-105">Log Today's Food</a>
+  </div>
+
+  <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+    <h2 class="text-3xl font-bold mb-6 text-center">Protein-Rich Food Suggestions</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for food in suggestions %}
+      <li class="bg-gray-700/50 p-4 rounded-xl">{{ food }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+{% endblock %}
